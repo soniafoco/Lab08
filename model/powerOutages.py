@@ -13,6 +13,7 @@ class Event:
     _date_event_began: datetime
     _date_event_finished: datetime
     _demand_loss: int
+    _time : float
 
     @property
     def id(self):
@@ -63,4 +64,13 @@ class Event:
 
     def __hash__(self):
         return hash(self._id)
+
+    @property
+    def set_time(self):
+        self._time = self._date_event_finished - self._date_event_began
+
+    @property
+    def time(self):
+        return self._time
+
 
